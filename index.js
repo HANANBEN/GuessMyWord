@@ -1,30 +1,32 @@
 let nav =[];  
-let inputWord;
-let wordGuessedInput = document.getElementById("inputWord");
-wordGuessedInput.addEventListener("input", function(event) {
-    let wordGuessed = event.target.value;
-    console.log(wordGuessed);
-    wordGuessed=inputWord; 
-});
 
-
-fetch(`https://api.datamuse.com/words?ml=${inputWord}`)
-.then(res => res.json())
-.then(data => { 
-    let dataArray=data.map(w => w.word); 
-    console.log(dataArray) ; 
-    nav = dataArray; 
-}
-); 
 
 
 let buttonContext=document.getElementById("showWords");
 let paragraphElement =document.getElementById("words"); 
 
 
-buttonContext.addEventListener("click", function(){
+buttonContext.addEventListener("click", function(event){
+
+    event.preventDefault();//so here this line of code prevent the forum to refresh so the data will 
     
-paragraphElement.innerHTML=nav;
+    let wordGuessedInput = document.getElementById("inputWord");
+
+    let wordGuessed = wordGuessedInput.value.trim();
+    console.log("hhhhhhhhhhh");
+    console.log(wordGuessed);
+
+
+fetch(`https://api.datamuse.com/words?ml=${wordGuessed}`)
+.then(res => res.json())
+.then(data => { 
+    let dataArray=data.map(w => w.word); 
+    console.log(dataArray) ; 
+    nav = dataArray; 
+    paragraphElement.innerHTML=nav;
+}
+);
+
 
 })
 
