@@ -1,0 +1,79 @@
+
+const myPromise = new Promise((resolve, reject) => {
+    let success = true; // Simulating success or failure
+
+    if (success) {
+        resolve("Operation was successful!"); // Call resolve if the operation is successful
+    } else {
+        reject("Operation failed!"); // Call reject if something goes wrong
+    }
+});
+
+
+
+
+
+
+A Promise does not return a value immediately. Instead, we use .then() and .catch() to handle it.
+
+
+myPromise
+    .then(result => console.log(result)) // Runs when resolved
+    .catch(error => console.log(error)); // Runs when rejected
+
+
+
+
+Understanding async and await in JavaScript 🚀
+async and await are modern JavaScript features 
+that simplify working with Promises. They allow 
+you to write asynchronous code in a way that looks more like
+ traditional synchronous code, making it easier to read and debug.
+
+ 1. What is async?
+The async keyword is used to define a function that always returns a Promise.
+
+
+async function myFunction() {
+    return "Hello, Async!";
+}
+
+myFunction().then(console.log); // Output: "Hello, Async!"
+
+
+Key Points:
+
+If you return a value inside an async function, it automatically becomes a resolved Promise.
+
+
+
+function myFunction() {
+    return Promise.resolve("Hello, Async!");
+}
+
+
+
+
+2. What is await?
+The await keyword is used inside an async function to pause execution until a Promise resolves.
+
+
+async function myFunction() {
+    let result = await Promise.resolve("Data received!");
+    console.log(result);
+}
+
+myFunction(); // Output: "Data received!"
+
+
+
+
+7. Summary
+✅ async makes a function return a Promise.
+✅ await pauses execution until a Promise resolves.
+✅ Use try...catch for error handling.
+✅ Promise.all() allows parallel execution.
+✅ async/await makes asynchronous code easier to read.
+
+
+

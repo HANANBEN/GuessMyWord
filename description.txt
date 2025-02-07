@@ -1,0 +1,10 @@
+so the project is based on 3 thing s  :
+1.Generate related words (AI guesses).
+2.Find common concepts between words.
+3.Check word similarity to help convergence.
+
+
+how to generate the project  :
+using pure js :
+1.i will have 2 AI models who will guess the words 
+2.
